@@ -30,7 +30,9 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(passport.initialize())
   app.use(passport.session())
   app.use(methodOverride('_method'))
-  
+  app.get('/upload', (req, res) => {
+    res.render('upload.ejs')
+  })
   app.get('/main', (req, res) => {
     res.render('main.ejs')
   })

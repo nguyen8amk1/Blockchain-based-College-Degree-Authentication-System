@@ -34,7 +34,7 @@
           <div class="card shadow-lg">
             <div class="card-body p-5">
               <h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
-              <form id="login-form" action="/login" method="POST">
+              <form action="/login" method="POST">
                 <div class="mb-3">
                   <label for="RankedAcademic" style="color: red;">Company</label>
                   <select class="custom-select d-block w-100" id="RankedAcademic" required>
@@ -79,29 +79,6 @@
       </div>
     </div>
   </section>
-  <!-- Login using javascript, send json data to /api/login -->
-  <script>
-    const form = document.getElementById('login-form');
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      const data = {
-        email: form.email.value,
-        password: form.password.value
-      }
-
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
-
-      const result = await response.json();
-      console.log(result);
-    });
-  </script>
 
 </body>
 

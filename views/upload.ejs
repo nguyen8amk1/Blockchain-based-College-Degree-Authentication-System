@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,29 +30,6 @@
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <a class="navbar-brand"><img src="assets/img/a.jpg" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="lni-menu"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
-            <li class="nav-item active">
-              <a class="nav-link" href="#hero-area">
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#services">
-                Services
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#team">
-                Team
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
     </nav>
     <!-- Navbar End -->
@@ -60,10 +40,15 @@
         <div class="row">
           <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
             <div class="contents">
-              <h2 class="head-title">Certificate Verification</h2>
+              <h2 class="head-title">Upload File</h2>
                 <div class="header-button">
-                  <a href="login.html" class="btn btn-common">Owner</a>
-                  <a href="/login" class="btn btn-common">Employer</a>
+                    <div class="file-upload">
+                        <div class="file-select">
+                          <div class="file-select-button" id="fileName">Choose File</div>
+                          <div class="file-select-name" id="noFile">No file chosen...</div> 
+                          <input type="file" name="chooseFile" id="chooseFile">
+                        </div>
+                      </div>
                 </div>
                 <style>
                   .header-button {
@@ -123,8 +108,9 @@
   <!-- jQuery -->
   <script src="assets/js/jquery-min.js"></script>
   <script src="assets/js/main.js"></script>
-
+  <script type="text/javascript" src="assets/js/text.js"></script>
 </body>
 
 </html>
+
 
