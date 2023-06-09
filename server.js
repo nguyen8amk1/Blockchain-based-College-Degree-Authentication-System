@@ -90,10 +90,6 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 app.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('register.ejs')
 })
-//upload page
-app.get('/upload', (req, res) => {
-  res.render('upload.ejs')
-})
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
   try {
