@@ -11,6 +11,39 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 
 const initializePassport = require('./passport-config')
+
+//upload file
+const multer = require("multer");
+const cors = require("cors");
+const path = require("path");
+const router = express.Router();
+
+const UPLOAD_DIR = path.join(__dirname, "/uploadFiles");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, UPLOAD_DIR);
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${file.originalname}`);
+  },
+});
+const upload = multer({ storage: storage });
+
+// add a route for uploading single files
+router.post("/upload-single-file", upload.single("file"), (req, res) => {
+  res.json({
+    message: `file ${req.file.filename} has saved on the server`,
+    url: `http://localhost:${8000}/${req.file.originalname}`,
+  });
+});
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(router);
+app.use(express.static(UPLOAD_DIR));
+// ------------------------------------------------------------------------------------------------
 initializePassport(
   passport,
   email => users.find(user => user.email === email),
@@ -18,6 +51,15 @@ initializePassport(
 )
 
 const users = []
+
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(router);
+app.use(express.static(UPLOAD_DIR));
+//use template bootsrap
+app.use(express.static(__dirname + '/template'));
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))

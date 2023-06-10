@@ -15,6 +15,11 @@
   <!-- Main Style -->
   <link rel="stylesheet" href="assets/css/main.css">
 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
 
 </head>
 
@@ -38,17 +43,12 @@
           <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
             <div class="contents">
               <h2 class="head-title">Upload File</h2>
-                <div class="header-button">
-                    <div class="file-upload">
-                        <div class="file-select">
-                          <div class="file-select-button" id="fileName">Choose File</div>
-                          <div class="file-select-name" id="noFile">No file chosen...</div> 
-                          <input type="file" name="chooseFile" id="chooseFile">
-                        </div>
-                      </div>
-                </div>
-                <style>
-                  .header-button {
+              <div class="header-button">
+                <input type="file"  id="fileInput">
+                <button id="uploadButton" class="btn btn-common">upload</button>
+              </div>
+              <style>
+                .header-button {
                   display: flex;
                   justify-content: center;
                 }
@@ -58,7 +58,7 @@
                   margin-top: 0;
                   margin-bottom: 20px;
                 }
-                </style>
+              </style>
 
             </div>
           </div>
@@ -105,9 +105,38 @@
   <!-- jQuery -->
   <script src="assets/js/jquery-min.js"></script>
   <script src="assets/js/main.js"></script>
-  <script type="text/javascript" src="assets/js/text.js"></script>
+  <!-- <script src="	https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script> -->
+  <script src="assets/js/upload.js"></script>
+
+  <script>
+    document.getElementById("uploadButton").onclick = () => {
+      let fileElement = document.getElementById('fileInput')
+
+      // check if user had selected a file
+      if (fileElement.files.length === 0) {
+        alert('please choose a file')
+        return
+      }
+
+      let file = fileElement.files[0]
+
+      let formData = new FormData();
+      formData.set('file', file);
+
+      axios.post("http://localhost:8000/upload-single-file", formData, {
+          onUploadProgress: progressEvent => {
+            const percentCompleted = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
+            console.log(`upload process: ${percentCompleted}%`);
+          }
+        })
+        .then(res => {
+          console.log(res.data)
+          console.log(res.data.url)
+        })
+    }
+  </script>
 </body>
 
 </html>
-
-
