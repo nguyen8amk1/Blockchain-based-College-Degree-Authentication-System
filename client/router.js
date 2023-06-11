@@ -30,13 +30,17 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+/*
 // add a route for uploading single files
 router.post("/upload-single-file", upload.single("file"), (req, res) => {
   res.json({
     message: `file ${req.file.filename} has saved on the server`,
     url: `http://localhost:${8000}/${req.file.originalname}`,
   });
+  // TODO: send to blockchain network and receive the result that the student exist or not  
+
 });
+*/
 
 app.use(cors());
 app.use(express.json());
@@ -89,6 +93,25 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('register.ejs')
+})
+
+app.post('/upload-single-file', checkNotAuthenticated, async (req, res) => {
+  // TODO: send to server 
+  const file = "THIS IS NOT WORKING";
+  const formData = new FormData();
+  formData.append('pdf', fs.createReadStream(file));
+
+  // Send the PDF file to the server
+  axios.post('http://localhost:3000/upload', formData, {
+    headers: formData.getHeaders(),
+  })
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
 })
 
 app.post('/register', checkNotAuthenticated, async (req, res) => {
