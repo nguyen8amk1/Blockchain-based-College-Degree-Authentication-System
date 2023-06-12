@@ -7,6 +7,7 @@ namespace Hash
 {
     public partial class Form1 : Form
     {
+        private string filePath;
         public Form1()
         {
             InitializeComponent();
@@ -14,7 +15,6 @@ namespace Hash
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string filePath = textBox1.Text;
             if (File.Exists(filePath))
             {
                 using (var sha256 = SHA256.Create())
@@ -31,5 +31,12 @@ namespace Hash
                 MessageBox.Show("File not found.");
             }
         }
-    }
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.ShowDialog();
+            filePath = openFileDialog.FileName;
+		}
+	}
 }

@@ -8,3 +8,14 @@ D:\Visual Studio\source\repos\Hash\Hash\obj\Debug\Hash.csproj.GenerateResource.c
 D:\Visual Studio\source\repos\Hash\Hash\obj\Debug\Hash.csproj.CoreCompileInputs.cache
 D:\Visual Studio\source\repos\Hash\Hash\obj\Debug\Hash.exe
 D:\Visual Studio\source\repos\Hash\Hash\obj\Debug\Hash.pdb
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\bin\Debug\Hash.exe.config
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\bin\Debug\Hash.exe
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\bin\Debug\Hash.pdb
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\obj\Debug\Hash.csproj.AssemblyReference.cache
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\obj\Debug\Hash.csproj.SuggestedBindingRedirects.cache
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\obj\Debug\Hash.Form1.resources
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\obj\Debug\Hash.Properties.Resources.resources
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\obj\Debug\Hash.csproj.GenerateResource.cache
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\obj\Debug\Hash.csproj.CoreCompileInputs.cache
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\obj\Debug\Hash.exe
+D:\HOCTAP\MMH\Test\Blockchain-based-College-Degree-Authentication-System\Hash\Hash\obj\Debug\Hash.pdb
