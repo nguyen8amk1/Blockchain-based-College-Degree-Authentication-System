@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="template/assets/fonts/line-icons.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="template/assets/css/main.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 
 </head>
 
@@ -73,6 +78,7 @@
                                         </button>
                                     </div>
                                 </div>
+                                <p id="failed" class="hidden" style="color: red;">Login failed </p>
                             </form>
                         </div>
                     </div>
@@ -114,8 +120,10 @@
                 console.log(data);
 
                 if (data.success) {
-                    window.location.href = data.message; // Redirect to org1createuser.html
-                } 
+                    window.location.href = data.message; 
+                } else {
+                    document.getElementById('failed').classList.toggle('hidden');
+                }
             })
             .catch(error => {
                 console.error("Error:", error);

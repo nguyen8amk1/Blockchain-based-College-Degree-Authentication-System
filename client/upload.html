@@ -133,7 +133,11 @@
 
                     if (response.data.success) {
                         // Redirect to valid.html
-                        window.location.href = response.data.message;
+                        window.location.href = "valid.html";
+                    }
+                    else {
+                        // Redirect to valid.html
+                        window.location.href = "notValid.html";
                     }
 
                 })
