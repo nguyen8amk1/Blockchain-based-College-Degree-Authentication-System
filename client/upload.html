@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Trang chủ</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="template/assets/css/bootstrap.min.css">
+    <!-- Icon -->
+    <link rel="stylesheet" href="template/assets/fonts/line-icons.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="template/assets/css/main.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand"><img src="template/assets/img/a.jpg" alt=""></a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Hero Area Start -->
+        <div id="hero-area" class="hero-area-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                        <div class="contents">
+                            <h2 class="head-title">Upload File</h2>
+                            <div class="header-button">
+                                <input type="file" id="fileInput">
+                                <button id="uploadButton" class="btn btn-common">upload</button>
+                            </div>
+                            <style>
+                                .header-button {
+                                    display: flex;
+                                    justify-content: center;
+                                }
+
+                                .head-title {
+                                    text-align: center;
+                                    margin-top: 0;
+                                    margin-bottom: 20px;
+                                }
+                            </style>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                        <div class="intro-img">
+                            <img class="img-fluid" src="template/assets/img/intro-mobile.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Area End -->
+
+    </header>
+    <!-- Header Area wrapper End -->
+
+    <!-- Footer Section Start -->
+    <footer>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div id="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- <div class="copyright-content">
+              <p>Copyright © 2020 <a rel="nofollow" href="https://uideck.com">UIdeck</a> All Right Reserved</p>
+            </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+
+    <!-- Preloader -->
+    <!-- <div id="preloader">
+    <div class="loader" id="loader-1"></div>
+  </div> -->
+    <!-- End Preloader -->
+
+    <!-- jQuery -->
+    <script src="template/assets/js/jquery-min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById("uploadButton").onclick = () => {
+            let fileElement = document.getElementById('fileInput')
+
+            // check if user had selected a file
+            if (fileElement.files.length === 0) {
+                alert('Please choose a file')
+                return
+            }
+
+            let file = fileElement.files[0];
+            console.log(file);
+
+            const formData = new FormData();
+            formData.append('pdf', file);
+
+            // Send the PDF file to the server
+            axios.post('http://localhost:3000/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+            })
+                .then((response) => {
+                    console.log(response.data);
+                    // Handle the server response here
+
+                    if (response.data.success) {
+                        // Redirect to valid.html
+                        window.location.href = response.data.message;
+                    }
+
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+    </script>
+</body>
+
+</html>
